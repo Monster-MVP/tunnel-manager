@@ -1,0 +1,74 @@
+/* Available-width layout protects text zoom and keeps every initial path visible. */
+.main-content { container-type: inline-size; container-name: console; }
+.stat-grid { grid-template-columns: repeat(auto-fit, minmax(min(12rem, 100%), 1fr)); gap: 20px; margin: 4px 0 20px; }
+.stat-item > div, .stat-item strong, .stat-item small { min-width: 0; overflow-wrap: anywhere; }
+.page-heading { margin-bottom: 18px; }
+.content-wrap { padding-top: 28px; }
+.stat-item { padding: 3px 0; }
+.topology-links { max-height: none; overflow: visible; gap: 8px; }
+.topology-exit, .topology-tunnel, .topology-server { min-height: 76px; padding: 6px 12px; }
+.topology-tunnel > svg, .topology-exit > svg { display: none; }
+.topology-map { padding: 18px; overflow: visible; }
+.topology-tools { max-width: 100%; gap: 6px; }
+.topology .section-heading { flex-wrap: wrap; margin-bottom: 14px; }
+.topology .section-heading > div:first-child { flex: 1 1 420px; }
+.topology .section-heading > .topology-tools { flex: 0 1 auto; }
+.topology .section-heading p { max-width: 48ch; }
+.topology-local::after { background: var(--line); height: 2px; }
+.topology-summary { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: var(--helper); padding: 5px 0 10px; color: var(--muted); }
+.topology-summary span { display: inline-flex; align-items: center; gap: 6px; }
+.topology-path.good .path-arrow { animation: probe-flow 2s ease-in-out; }
+.topology .topology-legend { margin-top: 10px; }
+.topology .topology-tools select { max-width: 138px; }
+.topology .topology-tools .quiet-button { padding: 8px 11px; }
+[data-view="overview"] { padding-top: 20px; }
+[data-view="overview"] .page-heading { margin-bottom: 14px; }
+[data-view="overview"] .stat-grid { margin-bottom: 10px; }
+[data-view="overview"] .topology { padding-top: 20px; }
+@keyframes probe-flow { 0%, 100% { opacity: 1; } 50% { opacity: .45; } }
+
+@container console (max-width: 850px) {
+  .topology-map { grid-template-columns: 1fr; }
+  .topology-local { display: flex; gap: 12px; align-items: center; justify-content: center; padding: 10px; }
+  .topology-local::after { display: none; }
+  .topology-local > .node-icon { width: 32px; height: 32px; margin: 0; }
+  .server-row { grid-template-columns: minmax(0, 1fr) minmax(120px, .7fr) 110px; }
+  .server-health { grid-column: 1 / 3; grid-row: 2; display: flex; flex-wrap: wrap; gap: 9px; }
+  .row-actions { grid-column: 3; grid-row: 1 / 3; }
+  .detail-grid { grid-template-columns: 1fr; }
+  .topology-path { grid-template-columns: minmax(0, .8fr) 16px minmax(0, .9fr) 16px minmax(0, 1.4fr); gap: 8px; }
+  .topology-server .node-icon { display: none; }
+}
+
+@container console (max-width: 620px) {
+  .content-wrap { padding: 24px 16px 48px; }
+  .page-heading, .section-heading { flex-wrap: wrap; }
+  .page-heading > div { min-width: 0; flex: 1 1 100%; }
+  .topology-path { grid-template-columns: minmax(0, .7fr) 14px minmax(0, 1fr); gap: 8px; }
+  .topology-tunnel { grid-column: 1; grid-row: 2; }
+  .topology-path > .path-arrow:nth-child(2) { grid-column: 2; grid-row: 1; }
+  .topology-path > .path-arrow:nth-child(4) { grid-column: 2; grid-row: 2; display: block; }
+  .topology-server { grid-column: 3; grid-row: 1 / 3; min-height: 100%; }
+  .topology-exit, .topology-tunnel { min-height: 72px; }
+  .server-row { grid-template-columns: minmax(0, 1fr) 90px; }
+  .server-main { grid-column: 1; grid-row: 1; }
+  .server-mode { grid-column: 1; grid-row: 2; margin-left: 0; }
+  .server-health { grid-column: 1; grid-row: 3; margin-left: 0; }
+  .row-actions { grid-column: 2; grid-row: 1 / 4; }
+  .setting-row { flex-wrap: wrap; }
+  .channel-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .topology-tools select { min-width: 0; max-width: 100%; }
+  .hero-status { flex-wrap: wrap; }
+  .form-grid { grid-template-columns: 1fr; }
+  .activity-row { flex-wrap: wrap; }
+  .activity-row time { margin-left: 19px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .topology-path.good .path-arrow { animation: none; }
+}
+
+@media (max-width: 600px) {
+  .activity-row { min-width: 0; }
+  .activity-row time { min-width: 0; max-width: calc(100% - 19px); flex-basis: calc(100% - 19px); }
+}

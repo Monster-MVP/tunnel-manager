@@ -1,0 +1,21 @@
+[project]
+name = "tunnel-manager"
+version = "2.0.0"
+requires-python = ">=3.12,<3.13"
+dependencies = ["fastapi>=0.115,<1", "uvicorn>=0.32,<1", "pydantic>=2.10,<3", "httpx>=0.28,<1"]
+
+[dependency-groups]
+dev = ["pytest>=8,<10", "pytest-asyncio>=0.24,<2", "websockets>=14,<17", "pyinstaller>=6.12,<7", "asyncssh>=2.20,<3", "ruff>=0.11,<1"]
+
+[tool.pytest.ini_options]
+pythonpath = ["apps/backend", "."]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+addopts = "-ra --basetemp=var/tmp/pytest"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 110
+
+[tool.uv]
+package = false

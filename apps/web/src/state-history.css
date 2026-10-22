@@ -1,0 +1,26 @@
+.state-history {
+  display: flex;
+  gap: 2px;
+  height: 8px;
+  margin: 6px 4px 0;
+}
+
+.state-history-segment {
+  flex: 1 1 0;
+  min-width: 0;
+  border-radius: 2px;
+  background: var(--muted);
+  opacity: .8;
+}
+
+.state-history-segment.good { background: var(--green); }
+.state-history-segment.working { background: var(--blue); }
+.state-history-segment.warn { background: var(--amber); }
+.state-history-segment.bad { background: var(--red); }
+
+.state-history-caption {
+  display: block;
+  color: var(--faint);
+  font-size: 10px;
+  margin: 8px 4px 0;
+}

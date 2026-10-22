@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+  <key>CFBundleDevelopmentRegion</key><string>zh</string>
+  <key>CFBundleLocalizations</key><array><string>zh-Hans</string></array>
+  <key>CFBundleDisplayName</key><string>Tunnel Manager</string>
+  <key>CFBundleExecutable</key><string>TunnelManager</string>
+  <key>CFBundleIconFile</key><string>TunnelManager</string>
+  <key>CFBundleIdentifier</key><string>com.tunnelmanager.app</string>
+  <key>CFBundleInfoDictionaryVersion</key><string>6.0</string>
+  <key>CFBundleName</key><string>Tunnel Manager</string>
+  <key>CFBundlePackageType</key><string>APPL</string>
+  <key>CFBundleShortVersionString</key><string>2.0.0</string>
+  <key>CFBundleVersion</key><string>2</string>
+  <key>LSMinimumSystemVersion</key><string>13.0</string>
+  <key>LSUIElement</key><true/>
+  <key>NSHighResolutionCapable</key><true/>
+  <key>NSDesktopFolderUsageDescription</key><string>项目位于桌面目录，需要访问项目内的配置、诊断日志和构建文件。</string>
+  <key>NSRemovableVolumesUsageDescription</key><string>项目和用户目录位于外接磁盘，需要访问本项目内的配置与运行数据。</string>
+</dict></plist>
